@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+sqlalchemy
+pydantic
+chromadb
+openai
+tiktoken
+python-multipart
+python-dotenv
+langchain
+langchain-community
+langchain-openai
+langchain-text-splitters
+pymysql
+langchain-chroma

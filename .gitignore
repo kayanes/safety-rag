@@ -1,0 +1,33 @@
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Node
+node_modules/
+dist/
+build/
+.next/
+out/
+
+# IDEs and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs and databases
+*.log
+*.sqlite3
+hara-legacy-rag/data/
+hara-legacy-rag/chroma_db_retrieval_module/
