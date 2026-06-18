@@ -1,6 +1,6 @@
 # RAG 기반 LLM을 활용한 항공 시스템 안전 분석 자동화: SFHA와 HARA 비교 연구
 
-> Automating Aviation System Safety Analysis with RAG-based LLMs: A Comparative Study of SFHA and HARA
+> Automation of Aviation System Safety Analysis Using a RAG-Based LLM: A Comparative Study of SFHA and HARA
 
 본 저장소는 위 연구의 재현을 위한 코드, 프롬프트, 평가 플랫폼 코드를 제공합니다.
 
@@ -10,7 +10,7 @@
 
 항공 시스템의 안전 분석은 방대한 데이터와 문서 검토를 요구하는 전문가 집약적 작업입니다. 본 연구는 FAA AIDS(Accident/Incident Data System) 사고·고장 데이터를 기반으로 안전 지식 데이터셋을 구축하고, GPT-4o-mini와 RAG(Retrieval-Augmented Generation)를 결합한 파이프라인을 구현하여 안전 분석 리포트 생성을 자동화합니다.
 
-두 가지 표준 안전 분석 방법론인 **SFHA**(System Functional Hazard Assessment, ARP 4761A)와 **HARA**(Hazard Analysis and Risk Assessment, ISO 26262)를 각각 LLM 단독 조건과 RAG 조건에서 수행하고, 13인 전문가의 블라인드 평가로 비교했습니다.
+두 가지 표준 안전 분석 방법론인 **SFHA**(System Functional Hazard Assessment, ARP 4761A)와 **HARA**(Hazard Analysis and Risk Assessment, ISO 26262)를 각각 LLM 단독 조건과 RAG 조건에서 수행하고, 12인 전문가의 블라인드 평가로 비교했습니다.
 
 ### 연구 질문 (Research Questions)
 
@@ -21,11 +21,11 @@
 
 | 조건 | LLM 단독 | RAG | 향상폭 |
 |------|---------|-----|--------|
-| HARA | 63.9 | 74.8 | +10.9 |
-| SFHA | 69.7 | 77.6 | +7.9 |
+| HARA | 64.7 | 76.2 | +11.5 |
+| SFHA | 70.7 | 79.2 | +8.5 |
 
 - RAG 조건에서 두 방법론 모두 실무 활용 가능 수준(60점)을 일관되게 상회 (RQ1)
-- SFHA가 5개 시나리오 전체에서 우위, 13인 중 8인이 SFHA 선호 (RQ2)
+- SFHA가 5개 시나리오 전체에서 우위, 12인 중 7인이 SFHA 선호 (RQ2)
 
 *점수는 100점 만점 정규화 기준이며, 본 연구는 탐색적 개념 증명(Proof of Concept) 수준의 결과입니다.*
 
@@ -104,30 +104,18 @@ npm run dev
 | 벡터 데이터베이스 | ChromaDB |
 | 지식 출처 | FAA AIDS (Accident/Incident Data System) |
 | 시나리오 | 충돌 회피, 통신 링크, 배터리 방전, 모드 전환, 센서 불일치 (5개) |
-| 평가자 | 13인 전문가 (블라인드 평가) |
+| 평가자 | 12인 전문가 (블라인드 평가) |
 | 평가 항목 | 7개 항목, 5점 리커트 척도 |
 
 ---
 
 ## 데이터 및 개인정보 (Data & Privacy)
 
-- **평가 데이터:** 평가자 개인정보 보호를 위해 모든 점수는 익명 식별자(E1~E13)로만 관리됩니다.
+- **평가 데이터:** 평가자 개인정보 보호를 위해 모든 점수는 익명 식별자(E1~E12)로만 관리됩니다.
 - **FAA AIDS 데이터:** 미국 연방항공청(FAA)이 공개한 데이터로, 원본은 [asias.faa.gov](https://asias.faa.gov)에서 확인할 수 있습니다.
 
----
+> **보안 주의:** 저장소를 공개하기 전에 `.env`(API 키)와 SQLite DB 파일에 평가자 실명·소속 등 개인정보나 비밀 키가 커밋되지 않았는지 반드시 확인하세요. `.gitignore`에 `.env`, `*.db`, `*.sqlite3` 등이 포함되어 있는지 점검을 권장합니다.
 
-## 인용 (Citation)
-
-> 논문 게재 후 업데이트 예정입니다.
-
-```bibtex
-@article{TODO2025aviation,
-  title   = {RAG 기반 LLM을 활용한 항공 시스템 안전 분석 자동화: SFHA와 HARA 비교 연구},
-  author  = {TODO},
-  journal = {TODO},
-  year    = {2025}
-}
-```
 
 ---
 
